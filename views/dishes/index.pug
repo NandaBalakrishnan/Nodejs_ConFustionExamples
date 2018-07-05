@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  table.table
+      thead
+        tr
+          th Name
+          th Image 
+          th Category
+          th
+      tbody
+        each dish in dishes
+          tr
+            td  !{dish.name}
+            td  !{dish.category}
+            td  !{appointment.image}
+            td
+              a.btn.btn-default.btn-sm(href="/appointments/" + appointment.id + "/edit") Edit
+            td
+              form(action="/dishes/" + dish.id + "/delete",method="POST")
+                button.btn.btn-danger.btn-sm(type='submit') Delete
